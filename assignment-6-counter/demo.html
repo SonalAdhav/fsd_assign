@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment 6 - React Counter (demo)</title>
+  <style>
+:root {
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #64748b;
+  --green: #16a34a;
+  --red: #dc2626;
+  --blue: #2563eb;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.counter {
+  width: 100%;
+  max-width: 380px;
+  background: var(--card);
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+.counter h1 {
+  font-size: 1.25rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.value {
+  font-size: 5rem;
+  font-weight: 700;
+  margin: 1.25rem 0 1.75rem;
+  transition: color 0.2s;
+}
+
+.value.positive { color: var(--green); }
+.value.negative { color: var(--red); }
+.value.zero     { color: var(--text); }
+
+.buttons {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.btn {
+  flex: 1;
+  padding: 0.7rem 0.4rem;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.btn:hover  { opacity: 0.9; }
+.btn:active { transform: scale(0.96); }
+.btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+
+.minus { background: var(--red); }
+.plus  { background: var(--green); }
+.reset { background: var(--muted); }
+
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Quick demo: React loaded from CDN so this page opens without npm. -->
+  <!-- The real Vite project source is in the src/ folder. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js"></script>
+
+  <script type="text/babel">
+const { useState } = React;
+
+function App() {
+  // count = current value, setCount = function to update it
+  const [count, setCount] = useState(0);
+
+  const increment = () => setCount(count + 1);
+  const decrement = () => setCount(count - 1);
+  const reset = () => setCount(0);
+
+  // Colour the number based on its value
+  const tone = count > 0 ? "positive" : count < 0 ? "negative" : "zero";
+
+  return (
+    <main className="app">
+      <section className="counter">
+        <h1>Counter</h1>
+
+        <p className={`value ${tone}`} aria-live="polite">
+          {count}
+        </p>
+
+        <div className="buttons">
+          <button className="btn minus" onClick={decrement}>
+            Decrement
+          </button>
+          <button className="btn reset" onClick={reset}>
+            Reset
+          </button>
+          <button className="btn plus" onClick={increment}>
+            Increment
+          </button>
+        </div>
+      </section>
+    </main>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

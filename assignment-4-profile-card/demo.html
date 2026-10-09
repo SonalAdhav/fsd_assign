@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assignment 4 - React Profile Card (demo)</title>
+  <style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: "Segoe UI", system-ui, sans-serif;
+  background: #f1f5f9;
+  color: #0f172a;
+}
+
+.app { min-height: 100vh; padding: 2rem 1rem; }
+
+.app h1 { text-align: center; margin-bottom: 1.5rem; font-size: 1.6rem; }
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.profile-card {
+  width: 260px;
+  background: #fff;
+  border-radius: 16px;
+  padding: 1.75rem 1.25rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.1);
+}
+
+.avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #dbeafe;
+  margin-bottom: 0.9rem;
+}
+
+.profile-card h2 { font-size: 1.15rem; margin-bottom: 0.5rem; }
+
+.profile-card p { font-size: 0.9rem; line-height: 1.5; color: #64748b; }
+
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+
+  <!-- Quick demo: React loaded from CDN so this page opens without npm. -->
+  <!-- The real Vite project source is in the src/ folder. -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.24.7/babel.min.js"></script>
+
+  <script type="text/babel">
+// Props: name, image, description (passed from the parent component)
+function ProfileCard({ name, image, description }) {
+  return (
+    <div className="profile-card">
+      <img src={image} alt={name} className="avatar" />
+      <h2>{name}</h2>
+      <p>{description}</p>
+    </div>
+  );
+}
+
+function App() {
+  return (
+    <main className="app">
+      <h1>Profile Cards</h1>
+
+      <div className="cards">
+        <ProfileCard
+          name="Sonal Adhav"
+          image="https://i.pravatar.cc/200?img=47"
+          description="MCA student learning full stack development with React, Node and MongoDB."
+        />
+        <ProfileCard
+          name="Rahul Sharma"
+          image="https://i.pravatar.cc/200?img=12"
+          description="Frontend developer who loves building clean and responsive interfaces."
+        />
+        <ProfileCard
+          name="Priya Patil"
+          image="https://i.pravatar.cc/200?img=32"
+          description="Backend enthusiast working with Express APIs and NoSQL databases."
+        />
+      </div>
+    </main>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+  </script>
+</body>
+</html>

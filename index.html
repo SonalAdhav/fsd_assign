@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FSD Assignments - MCA40290</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      padding: 2rem 1rem 3rem;
+    }
+
+    header { max-width: 900px; margin: 0 auto 2rem; }
+    header h1 { font-size: 1.8rem; }
+    header p { color: #64748b; margin-top: 0.35rem; }
+
+    .grid {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.25rem;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+    }
+
+    .card .tag {
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      margin-bottom: 0.75rem;
+    }
+    .js    { background: #fef9c3; color: #854d0e; }
+    .react { background: #dbeafe; color: #1d4ed8; }
+
+    .card h2 { font-size: 1.05rem; margin-bottom: 0.4rem; }
+    .card p  { font-size: 0.9rem; color: #64748b; line-height: 1.45; flex: 1; }
+
+    .card a.open {
+      margin-top: 1rem;
+      text-align: center;
+      text-decoration: none;
+      font-weight: 600;
+      color: #fff;
+      background: #2563eb;
+      padding: 0.6rem;
+      border-radius: 9px;
+    }
+    .card a.open:hover { opacity: 0.9; }
+    .card a.open:focus-visible { outline: 3px solid #1e3a8a; outline-offset: 2px; }
+
+    footer { max-width: 900px; margin: 2rem auto 0; font-size: 0.85rem; color: #64748b; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Lab on Full Stack Development</h1>
+    <p>MCA40290 · Assignments 1 to 6</p>
+  </header>
+
+  <main class="grid">
+    <article class="card">
+      <span class="tag js">JavaScript</span>
+      <h2>Assignment 1: Calculator</h2>
+      <p>Basic arithmetic using JavaScript functions and a switch statement.</p>
+      <a class="open" href="assignment-1-calculator/index.html">Open</a>
+    </article>
+
+    <article class="card">
+      <span class="tag js">JavaScript</span>
+      <h2>Assignment 2: To-Do List</h2>
+      <p>Add, complete and delete tasks dynamically using DOM methods.</p>
+      <a class="open" href="assignment-2-todo-list/index.html">Open</a>
+    </article>
+
+    <article class="card">
+      <span class="tag js">JavaScript</span>
+      <h2>Assignment 3: Form Validation</h2>
+      <p>Registration form with name, email, phone and password validation.</p>
+      <a class="open" href="assignment-3-form-validation/index.html">Open</a>
+    </article>
+
+    <article class="card">
+      <span class="tag react">React</span>
+      <h2>Assignment 4: Profile Card</h2>
+      <p>A reusable profile card component that receives its data through props.</p>
+      <a class="open" href="assignment-4-profile-card/demo.html">Open</a>
+    </article>
+
+    <article class="card">
+      <span class="tag react">React</span>
+      <h2>Assignment 5: Controlled Form</h2>
+      <p>Controlled inputs with the entered data shown live below the form.</p>
+      <a class="open" href="assignment-5-controlled-form/demo.html">Open</a>
+    </article>
+
+    <article class="card">
+      <span class="tag react">React</span>
+      <h2>Assignment 6: Counter App</h2>
+      <p>Increment, decrement and reset using the useState hook.</p>
+      <a class="open" href="assignment-6-counter/demo.html">Open</a>
+    </article>
+  </main>
+
+  <footer>
+    React assignments open as quick demos here (internet needed). Their full Vite
+    source is inside each assignment's folder; run it with npm install and npm run dev.
+  </footer>
+</body>
+</html>
